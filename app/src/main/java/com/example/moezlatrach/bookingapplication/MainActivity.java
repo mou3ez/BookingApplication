@@ -8,9 +8,13 @@ import android.support.v7.widget.Toolbar;
 import android.view.View;
 import android.view.Menu;
 import android.view.MenuItem;
+import android.widget.ListView;
+
+import com.example.moezlatrach.bookingapplication.adapters.RestauAdapter;
+import com.example.moezlatrach.bookingapplication.utils.RestaurantContent;
 
 public class MainActivity extends AppCompatActivity {
-
+ListView lvRestaurants;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -26,6 +30,10 @@ public class MainActivity extends AppCompatActivity {
                         .setAction("Action", null).show();
             }
         });
+
+        lvRestaurants= (ListView) findViewById(R.id.lv_restau);
+        RestauAdapter adapter=new RestauAdapter(this,R.layout.item_restau, RestaurantContent.geRestaurants());
+        lvRestaurants.setAdapter(adapter);
     }
 
     @Override

@@ -10,7 +10,7 @@ import android.view.Menu;
 import android.view.MenuItem;
 import android.widget.ListView;
 
-import com.example.moezlatrach.bookingapplication.adapters.RestauAdapter;
+import com.example.moezlatrach.bookingapplication.adapters.RestaurantAdapter;
 import com.example.moezlatrach.bookingapplication.utils.RestaurantContent;
 
 public class MainActivity extends AppCompatActivity {
@@ -32,7 +32,7 @@ ListView lvRestaurants;
         });
 
         lvRestaurants= (ListView) findViewById(R.id.lv_restau);
-        RestauAdapter adapter=new RestauAdapter(this,R.layout.item_restau, RestaurantContent.geRestaurants());
+        RestaurantAdapter adapter=new RestaurantAdapter(this,R.layout.item_restau, RestaurantContent.geRestaurants());
         lvRestaurants.setAdapter(adapter);
     }
 

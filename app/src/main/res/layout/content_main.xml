@@ -12,9 +12,7 @@
     tools:context="com.example.moezlatrach.bookingapplication.MainActivity"
     tools:showIn="@layout/activity_main">
 
-    <HorizontalScrollView
-        android:layout_width="match_parent"
-        android:layout_height="match_parent">
+
 <ListView
     android:id="@+id/lv_restau"
     android:layout_width="match_parent"
@@ -22,6 +20,5 @@
 
 </ListView>
 
-    </HorizontalScrollView>
 
 </RelativeLayout>

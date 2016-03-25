@@ -1,5 +1,6 @@
 package com.example.moezlatrach.bookingapplication;
 
+import android.content.Intent;
 import android.os.Bundle;
 import android.support.design.widget.FloatingActionButton;
 import android.support.design.widget.Snackbar;
@@ -8,13 +9,16 @@ import android.support.v7.widget.Toolbar;
 import android.view.View;
 import android.view.Menu;
 import android.view.MenuItem;
+import android.widget.AdapterView;
 import android.widget.ListView;
 
 import com.example.moezlatrach.bookingapplication.adapters.RestaurantAdapter;
 import com.example.moezlatrach.bookingapplication.utils.RestaurantContent;
 
 public class MainActivity extends AppCompatActivity {
-ListView lvRestaurants;
+    ListView lvRestaurants;
+    public static final String Key_POSITION = "keyPosition";
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -31,9 +35,18 @@ ListView lvRestaurants;
             }
         });
 
-        lvRestaurants= (ListView) findViewById(R.id.lv_restau);
-        RestaurantAdapter adapter=new RestaurantAdapter(this,R.layout.item_restau, RestaurantContent.geRestaurants());
+        lvRestaurants = (ListView) findViewById(R.id.lv_restau);
+        RestaurantAdapter adapter = new RestaurantAdapter(this, R.layout.item_restau, RestaurantContent.geRestaurants());
         lvRestaurants.setAdapter(adapter);
+
+        lvRestaurants.setOnItemClickListener(new AdapterView.OnItemClickListener() {
+            @Override
+            public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
+                Intent intent = new Intent(MainActivity.this, RestaurantDetailActivity.class);
+                intent.putExtra(Key_POSITION, RestaurantContent.geRestaurants().get(position));
+                startActivity(intent);
+            }
+        });
     }
 
     @Override

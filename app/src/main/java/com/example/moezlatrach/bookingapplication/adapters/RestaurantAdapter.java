@@ -37,7 +37,7 @@ public class RestaurantAdapter extends ArrayAdapter<Restaurant> {
 
             holder.tvName = (TextView) view.findViewById(R.id.tv_restau_name);
             holder.tvAdresse = (TextView) view.findViewById(R.id.tv_restau_adresse);
-            holder.imgResatu = (ImageView) view.findViewById(R.id.img_restau);
+            holder.imgRestau = (ImageView) view.findViewById(R.id.img_restau);
             view.setTag(holder);
         }
         else {
@@ -45,14 +45,14 @@ public class RestaurantAdapter extends ArrayAdapter<Restaurant> {
         }
         holder.tvName.setText(getItem(position).getNom());
         holder.tvAdresse.setText(getItem(position).getAdresse());
-        holder.imgResatu.setBackgroundResource(getItem(position).getImageRes());
+        holder.imgRestau.setBackgroundResource(getItem(position).getImg());
 
         return view;
     }
 
     class RestaurantHolder {
         TextView tvAdresse;
-        ImageView imgResatu;
+        ImageView imgRestau;
         TextView tvName;
     }
 }
